@@ -67,23 +67,23 @@ const ITEM_WIDTH = 800
         
          
          <div className= 'absolute left-1/2 transform -translate-x-1/2  top-5  text-center select-none'>
-          <h2 className='text-3xl font-bold tracking-widest '> BARÇA TEAM</h2>
+          <h2 className='text-4xl text- font-semibold text-gold  '> BARÇA TEAM</h2>
 
          </div>
          
          <div className='absolute top-5 right-10 border-red-900   flex gap-x-2 scroll-smooth'>
                     
 
-            <button className='flex items-center justify-center h-10 w-10 rounded-full transition duration-500 ease-in-out  bg-blue-800/60  hover:bg-blue-900'
+            <button className='flex items-center justify-center h-10 w-10 rounded-full transition duration-500 ease-in-out    hover:bg-blue-800/60'
             onClick={() => handleScroll(-ITEM_WIDTH)}
             >
-            <GoArrowLeft className='h-7 w-7 text-white' />
+            <GoArrowLeft className='h-7 w-7 text-gray-500' />
             </button>
-            <button className='flex items-center justify-center h-10 w-10 rounded-full  transition duration-500 ease-in-out  bg-blue-800/60 hover:bg-blue-900'
+            <button className='flex items-center justify-center h-10 w-10 rounded-full  transition duration-500 ease-in-out  hover:bg-blue-800/60'
             onClick={() => handleScroll(ITEM_WIDTH)}
 
             >
-            <GoArrowRight className='h-7 w-7 text-white' />
+            <GoArrowRight className='h-7 w-7 text-gray-500  ' />
             </button>
             
          </div>
@@ -124,7 +124,7 @@ const ITEM_WIDTH = 800
         <div 
         key={player.id}
         draggable="false"
-         className={`h-67 w-50 bg-linear-to-b from-red-700 to-blue-900  mt-20 mb-10 relative flex  justify-evenly rounded-4xl flex-none select-none overflow-hidden 
+         className={`h-67 w-50 bg-linear-to-b from-gray-900 to-blue-900  mt-20 mb-10 relative flex  justify-evenly rounded-4xl flex-none select-none overflow-hidden 
          
           ${index === 0 ? 'ml-4' : 'ml-10'} 
         `}
