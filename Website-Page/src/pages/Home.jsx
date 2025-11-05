@@ -6,13 +6,20 @@ import MesQueUnClub from '../components/mesQueUnClub'
 function Home() {
   return ( 
     <div>
-    <ParticlesComponent/>
+      <div style={{ height: "100vh"}}>
+        <ParticlesComponent/>
+      </div>
+    
     <MesQueUnClub/>
-     <Scrolling/>
-     
-   <section className="relative ">
+    <div className='bg-linear-to-r from-[rgb(0,77,152)] to-[#A50044]'>
+<Scrolling/>
+<section className="relative ">
         <ContentBarca />
       </section>
+    </div>
+     
+     
+   
 
     
        </div>

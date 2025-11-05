@@ -88,8 +88,7 @@ const ITEM_WIDTH = 800
             
          </div>
     
-   <div className='bg-linear-to-r from-[rgb(0,77,152)] to-[#A50044]  '
-   >
+   <div >
         <div 
 
     // Conecta el elemento HTML al Custom Hook de React para poder manipularlo con JavaScript.    ref={containerRef}
@@ -174,7 +173,7 @@ const ITEM_WIDTH = 800
 
           
 
-        //  MODAL (VENTANA EMERGENTE)
+        //  MODAL CARTAS DE CARTAS (VENTANA EMERGENTE)
         <div className="absolute inset-0 bg-black/50 backdrop-blur-lg flex justify-center items-center h-full border-red-700 ">
           <div className='flex border bg-linear-to-b from-red-700 to-blue-900 gap-5 rounded-3xl p-3 bg-white select-none'> 
           <div>

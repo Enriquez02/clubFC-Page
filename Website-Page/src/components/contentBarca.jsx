@@ -13,7 +13,7 @@ const ContentBarca = () => {
   const [activeTextIndex, setActiveTextIndex] = useState(0)
 
   return (
-    <div className= " bg-gradient-to-r from-[rgb(0,77,152)] to-[#A50044] h-full  p-4  w-full  ">
+    <div className= " p-4">
       <div className= " flex m-auto rounded-xl   h-full max-w-5xl bg-white shadow-lg">
         <div className="w-1/2 ">
          <h2>dskfsdjkl</h2>

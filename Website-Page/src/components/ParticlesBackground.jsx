@@ -43,7 +43,7 @@ const ParticlesComponent = () => {
   defaultThemes: {},
   delay: 0,
   fullScreen: {
-    enable: true,
+    enable: false,
     zIndex: -1
   },
   detectRetina: true,
@@ -563,10 +563,10 @@ const ParticlesComponent = () => {
 };
 
 return (
-  <div className="relative h-[calc(100vh-80px)]  w-full overflow-hidden">
-    {init && <Particles options={options} />}
+  <div className="relative h-[100vh] w-full overflow-hidden">
+    {init && <Particles options={options}  className="absolute top-0 left-0 w-full h-full -z-10"/>}
 
-    <div className="flex flex-col lg:flex-row justify-center items-center pl-22 pr-15 gap-2 h-full w-full text-center ">
+    <div className="relative flex flex-col lg:flex-row justify-center items-center pl-22 pr-15 gap-2 h-full w-full text-center ">
       <img
         src={barcaBackground}
         alt="Descripción"
