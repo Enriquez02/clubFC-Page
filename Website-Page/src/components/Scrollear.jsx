@@ -1,3 +1,5 @@
+// React page where you can informate about how i made the scrolling and dragging
+
 import { useState, useRef } from "react";
 
 
@@ -5,19 +7,17 @@ import { useState, useRef } from "react";
 const useScrollDrag = () => {
  
   // ARRASTRE 
-       // // Scroll Squad
+      
       const containerRef = useRef(null); 
-     // //   Un interruptor que dice: "¿Está el botón del mouse presionado? (true o false)"
+     
      const [isDragging, setIsDragging] = useState(false);
-     // Guarda la posición horizontal donde el mouse empezó el clic.
      const [startX, setStartX] = useState(0);
-     // Guarda dónde estaba la lista antes de empezar a arrastrarla.
      const [scrollLeft, setScrollLeft] = useState(0);
  
         const handleMouseDown = (e) => {
-         setIsDragging(true); // Empezamos a arrastrar
-         // Tanto e.clientX como containerRef.current.offsetLeft son propiedades de JavaScript que te dan la posición exacta de elementos en la pantalla.
-         setStartX(e.clientX - containerRef.current.offsetLeft); // Posición inicial del cursor
+         setIsDragging(true); 
+      
+         setStartX(e.clientX - containerRef.current.offsetLeft); 
          setScrollLeft(containerRef.current.scrollLeft); // Posición inicial del scroll
          containerRef.current.style.cursor = 'grabbing'; // Feedback visual
      };
@@ -30,7 +30,6 @@ const useScrollDrag = () => {
      const handleMouseMove = (e) => {
          if (!isDragging) return; // Solo funciona si el mouse está presionado
          e.preventDefault(); // Evita que se seleccione el texto
-         
          const x = e.clientX - containerRef.current.offsetLeft ; 
          const distance = (x - startX) *2 ; // Distancia arrastrada
          containerRef.current.scrollLeft = scrollLeft - distance

@@ -1,3 +1,5 @@
+// Scroll horizontal where i show the whole barcelona's squad 
+
 import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
 import { SquadMap, ShortName} from './Squad';
@@ -5,12 +7,10 @@ import useScrollDrag from './Scrollear.jsx';
 import { GoArrowLeft, GoArrowRight  } from "react-icons/go";
 import MoreInformation from './popUpWindow';
 
-
 const API_URL = 'http://localhost:7000/squad';
 
-const  Scrolling= () => {
+const  Scrolling= () => {  
 
-    
     // Crea una variable de estado. data es donde se guardarán los jugadores (inicialmente una lista vacía []).
     const [data, setData] = useState([]);
      const [isLoading, setIsLoading] = useState(true);
@@ -23,33 +23,25 @@ const  Scrolling= () => {
   setShowModal(true); 
   };
 
-  
-
-   
 const ITEM_WIDTH = 800
 
      useEffect(() => {
-    // Función asíncrona para hacer la petición a tu API de Express
     const fetchSquad = async () => {
     try{
-  // Hacemos la petición a la URL de tu servidor Express
         const response = await axios.get(API_URL);
-        
-        // La API de fútbol externa devuelve los datos en la propiedad 'response'
-        // Extraemos los datos del equipo y los guardamos en el estado.
         const teamInfo = response.data.response[0].players;
 
         setData(teamInfo);
     }finally{
       setIsLoading(false);
-    }
-      
+    }      
     };
 
     fetchSquad();
   }, []);
     
      const { 
+
         containerRef, 
         handleMouseDown, 
         handleMouseUp, 
@@ -58,43 +50,29 @@ const ITEM_WIDTH = 800
         handleScroll
     } = useScrollDrag();
 
-    
-    
-
   return (
     
     <div className="relative">
-        
-         
-         <div className= 'absolute left-1/2 transform -translate-x-1/2  top-5  text-center select-none'>
+        <div className= 'absolute left-1/2 transform -translate-x-1/2  top-5  text-center select-none'>
           <h2 className='text-4xl text- font-semibold text-gold  '> BARÇA TEAM</h2>
-
-         </div>
-         
-         <div className='absolute top-5 right-10 border-red-900   flex gap-x-2 scroll-smooth'>
-                    
-
+        </div>
+      <div className='absolute top-5 right-10 border-red-900   flex gap-x-2 scroll-smooth'>
+                  
             <button className='flex items-center justify-center h-10 w-10 rounded-full transition duration-500 ease-in-out    hover:bg-blue-800/60'
             onClick={() => handleScroll(-ITEM_WIDTH)}
             >
+
             <GoArrowLeft className='h-7 w-7 text-gray-500' />
             </button>
             <button className='flex items-center justify-center h-10 w-10 rounded-full  transition duration-500 ease-in-out  hover:bg-blue-800/60'
             onClick={() => handleScroll(ITEM_WIDTH)}
-
             >
+
             <GoArrowRight className='h-7 w-7 text-gray-500  ' />
-            </button>
-            
-         </div>
-    
-   <div >
+            </button>        
+         </div>    
+   <div>
         <div 
-
-    // Conecta el elemento HTML al Custom Hook de React para poder manipularlo con JavaScript.    ref={containerRef}
-    
-  
-
      ref={containerRef}
       onMouseDown={showModal ? undefined : handleMouseDown}
       onMouseUp={showModal ? undefined : handleMouseUp}
@@ -106,11 +84,7 @@ const ITEM_WIDTH = 800
            scrollbar-thin
            [scrollbar-width:none]
            [&::-webkit-scrollbar]:hidden"
-
-
 >
-  
-    {/* <div className='bg-pink-500 w-max  cursor-grab flex flex-wrap   pt-px '  > */}
 
         {data.map((player,index) => {
             
@@ -120,28 +94,23 @@ const ITEM_WIDTH = 800
             const endName = InforNewName ? InforNewName :player.name
 
             return (
+
         <div 
         key={player.id}
         draggable="false"
-         className={`h-67 w-50 bg-linear-to-b from-gray-900 to-blue-900  mt-20 mb-10 relative flex  justify-evenly rounded-4xl flex-none select-none overflow-hidden 
-         
+         className={`h-67 w-50 bg-linear-to-b from-gray-900 to-blue-900  mt-20 mb-10 relative flex  justify-evenly rounded-4xl flex-none select-none overflow-hidden   
           ${index === 0 ? 'ml-4' : 'ml-10'} 
         `}
         >
             <div 
             className={` absolute select-none w-full  bottom-0
-            
-            
             `}
-             >
-
-               
+            >           
               <img  
               src={fotoFinal}
               alt={player.name}
              className=' pointer-events-auto h-60 m-auto'
               >
-                
               </img>
             </div>
 
@@ -154,25 +123,13 @@ const ITEM_WIDTH = 800
 
         </div>
         <div>
-       
-
-       {/* Si showModal es true, mostramos el modal */}
-      
-       </div>
-          
+       {/* Si showModal es true, mostramos el modal */}     
+       </div>  
           <MoreInformation onMoreInfo={() => handleMoreInfo(player)} />
-        
-  
-        </div>
-        
-        
+      </div>            
          )})}
-
-
         {showModal && selectedPlayer && (
-
-          
-
+    
         //  MODAL CARTAS DE CARTAS (VENTANA EMERGENTE)
         <div className="absolute inset-0 bg-black/50 backdrop-blur-lg flex justify-center items-center h-full border-red-700 ">
           <div className='flex border bg-linear-to-b from-red-700 to-blue-900 gap-5 rounded-3xl p-3 bg-white select-none'> 

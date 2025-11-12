@@ -1,14 +1,15 @@
+//NAVBAR DE LA PAGINA 
 import { Link } from 'react-router-dom';
 import barcaIcon from '../assets/fcb_logo.png';
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center w-full  bg-gradient-to-r from-red-700 to-blue-900 h-20 px-10 shadow-md z-20">
+    <div className="flex justify-between items-center w-full  bg-linear-to-r from-red-700 to-blue-900 h-20 px-10 shadow-md z-20">
  
       <Link
       to="/">
          <img src={barcaIcon} alt="Barça Icon" 
-      className="w-16 h-16 transition duration-500 hover:scale-110" 
+      className="w-16 h-16 transition duration-500 hover:scale-110 hidden md:block" 
 
       /> </Link>
 
@@ -18,7 +19,7 @@ const Navbar = () => {
             to="/contacto"
           className="
     text-white border-2 border-white px-4 py-2 rounded-xl
-    transition-all duration-300 hover:bg-gradient-to-r hover:from-red-700 hover:to-blue-900 hover:border-red-500"
+    transition-all duration-300 hover:bg-linear-to-r hover:from-red-700 hover:to-blue-900 hover:border-red-500"
 >
             Contacto
           </Link>
@@ -26,7 +27,7 @@ const Navbar = () => {
         <li>
           <Link
             to="/vitrina"
-            className="text-white transition duration-600 hover:bg-gradient-to-r hover:from-red-700 hover:to-blue-900 px-4 py-2 rounded-xl"
+            className="text-white transition duration-600 hover:bg-linear-to-r hover:from-red-700 hover:to-blue-900 px-4 py-2 rounded-xl"
           >
             Vitrina
           </Link>
@@ -34,7 +35,7 @@ const Navbar = () => {
         <li>
           <Link
             to="/calendario"
-            className="text-white transition duration-600 hover:bg-gradient-to-r hover:from-red-700 hover:to-blue-900 px-4 py-2 rounded-xl"
+            className="text-white transition duration-600 hover:bg-linear-to-r hover:from-red-700 hover:to-blue-900 px-4 py-2 rounded-xl"
           >
             Calendario
           </Link>
