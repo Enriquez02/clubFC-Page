@@ -11,13 +11,13 @@ import masia from "../assets/imgContentBarca/masia.jpg"
 const ContentBarca = () => {
 
   const clubInfo = [
-      { id: 0, title: "Our Best Team", info1: "El mejor Barcelona de la historia fue el que dirigió Pep Guardiola entre 2008 y 2012, un equipo que marcó una época y cambió la forma de entender el fútbol. Su estilo se basaba en el tiki-taka, un juego de posesión, toques cortos y movimientos constantes, con el objetivo de dominar el balón y desgastar al rival." , info2: " Este sistema no solo buscaba ganar, sino también hacerlo con belleza, precisión y control total del partido.", img : barca
+      { id: 0, title: "Our Best Team", info1: "El mejor Barcelona de la historia fue el que dirigió Pep Guardiola entre 2008 y 2012, un equipo que marcó una época y cambió la forma de entender el fútbol. Su estilo se basaba en el tiki-taka, un juego de posesión, toques cortos y movimientos constantes, " , info2: " con el objetivo de dominar el balón y desgastar al rival. Este sistema no solo buscaba ganar, sino también hacerlo con belleza, precisión y control total del partido.", img : barca
    },
       { id: 1, title: "Our History", info1: "El FC Barcelona fue fundado en 1899. Desde sus inicios, el club se convirtió  en uno de los equipos más importantes de Europa. Ha tenido épocas doradas, especialmente con figuras como Johan Cruyff, quien introdujo el estilo de juego que marcaría al club." , info2: " Más tarde, el Barça vivió uno de sus momentos más exitosos, con jugadores como Messi, Xavi e Iniesta, practicando un fútbol admirado en todo el mundo.", img : history },
   
-      { id: 2, title: "Cruyff's Legacy ", info1: "El legado de Johan Cruyff en el FC Barcelona va mucho más allá de los títulos: transformó por completo la filosofía del club. Como jugador, introdujo una forma inteligente y técnica de entender el fútbol; pero como entrenador (1988 - 1996), revolucionó el estilo con su idea del “fútbol total”, basada en la posesión, la movilidad y la formación de jugadores con pensamiento creativo.",  img : johan },
+      { id: 2, title: "Cruyff's Legacy ", info1: "  Como jugador, introdujo una forma inteligente y técnica de entender el fútbol; pero como entrenador, revolucionó el estilo con su idea del “fútbol total”, basada en la posesión, la movilidad y la formación de jugadores con pensamiento creativo.",  img : johan },
   
-      { id: 3, title: "La Masia", info1: "La Masia es la academia de formación del FC Barcelona y uno de los pilares más importantes de su éxito. Fundada oficialmente en 1979, su objetivo ha sido formar no solo grandes futbolistas, sino también personas con valores como la humildad, el respeto y el trabajo en equipo. A través de su sistema de juego basado en la filosofía de Cruyff", img:masia }
+      { id: 3, title: "La Masia", info1: "La Masia es la academia de formación del FC Barcelona y uno de los pilares más importantes de su éxito. Fundada oficialmente en 1979, su objetivo ha sido formar no solo grandes futbolistas, sino también personas con valores como la humildad, el respeto y el trabajo en equipo.", info2: " A través de su sistema de juego basado en la filosofía de Cruyff", img:masia }
     ];
 
     const [infor, setInfor] = useState(0);
@@ -56,7 +56,7 @@ const ContentBarca = () => {
                         grid md:grid-cols-2 md:divide-x divide-indigo-500
                     "
                 >
-                    <div className="p-10 m-auto hidden md:block ">
+                    <div className="p-3 m-auto hidden md:block ">
                         <img src={clubInfo[infor].img} className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"/>
                     </div>
                     
@@ -65,9 +65,9 @@ const ContentBarca = () => {
                            <h2 >{clubInfo[infor].title}</h2>
                         </div>
                         
-                        <div className="px-8 text-center ">
+                        <div className="px-6 text-center ">
                             <p>{clubInfo[infor].info1}</p>
-                            <p className="hidden lg:block" >{clubInfo[infor].info2}</p>
+                            <p className="hidden sm:block" >{clubInfo[infor].info2}</p>
                         </div>
                         
                         <div className="flex justify-center gap-2 ">

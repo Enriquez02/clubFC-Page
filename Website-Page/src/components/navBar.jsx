@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link
       to="/">
          <img src={barcaIcon} alt="Barça Icon" 
-      className="w-16 h-16 transition duration-500 hover:scale-110 hidden md:block" 
+      className="w-16 h-16 transition duration-500 hover:scale-110 hidden sm:block" 
 
       /> </Link>
 

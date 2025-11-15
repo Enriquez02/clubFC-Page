@@ -93,4 +93,16 @@ export const ShortName = {
 }
 
 
+export const excludedPlayer = [
+          {id: "543468"},
+          {id: "383647"}, 
+          {id: "568001"},
+          {id: "491087"},
+          {id: "579244"},
+]
+    
+
+
+
+
 

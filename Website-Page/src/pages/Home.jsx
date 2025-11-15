@@ -10,8 +10,9 @@ function Home() {
         <ParticlesComponent/>
       </div>
     
-    <MesQueUnClub/>
+    
     <div className='bg-linear-to-r from-[rgb(0,77,152)] to-[#A50044]'>
+      <MesQueUnClub/>
 <Scrolling/>
 <section className="relative ">
         <ContentBarca />

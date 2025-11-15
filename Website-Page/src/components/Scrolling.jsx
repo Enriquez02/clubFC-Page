@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
-import { SquadMap, ShortName} from './Squad';
+import { SquadMap, ShortName, excludedPlayer} from './Squad';
 import useScrollDrag from './Scrollear.jsx';
 import { GoArrowLeft, GoArrowRight  } from "react-icons/go";
 import MoreInformation from './popUpWindow';
@@ -53,10 +53,10 @@ const ITEM_WIDTH = 800
   return (
     
     <div className="relative">
-        <div className= 'absolute left-1/2 transform -translate-x-1/2  top-5  text-center select-none'>
-          <h2 className='text-4xl text- font-semibold text-gold  '> BARÇA TEAM</h2>
+        <div className= 'absolute left-1/2 transform -translate-x-1/2  top-5 text-center select-none w-[225px]'>
+          <h2 className='text-4xl text- font-semibold '> BARÇA TEAM</h2>
         </div>
-      <div className='absolute top-5 right-10 border-red-900   flex gap-x-2 scroll-smooth'>
+      <div className='hidden sm:flex absolute top-5 right-10 border-red-900 gap-x-2 scroll-smooth'>
                   
             <button className='flex items-center justify-center h-10 w-10 rounded-full transition duration-500 ease-in-out    hover:bg-blue-800/60'
             onClick={() => handleScroll(-ITEM_WIDTH)}
@@ -80,13 +80,16 @@ const ITEM_WIDTH = 800
       onMouseMove={showModal ? undefined : handleMouseMove}
             
             // 4. CLASES CSS CRUCIALES para que no se rompa la línea : overflow-x-scroll, whitespace-nowrap, flex-none
-   className="bg-white mx-5 p-5 flex overflow-x-scroll whitespace-nowrap cursor-grab rounded-b-2xl 
+   className="bg-white mx-1 p-5 flex overflow-x-scroll whitespace-nowrap cursor-grab rounded-b-2xl 
            scrollbar-thin
            [scrollbar-width:none]
-           [&::-webkit-scrollbar]:hidden"
+           [&::-webkit-scrollbar]:hidden
+           sm:mx-5"
 >
 
-        {data.map((player,index) => {
+        {data
+        .filter(player => !excludedPlayer.some(ex => String(ex.id) === String(player.id)))
+        .map((player,index) => {
             
             const InforNew = SquadMap[player.name]; 
             const InforNewName = ShortName[player.name]
@@ -94,7 +97,7 @@ const ITEM_WIDTH = 800
             const endName = InforNewName ? InforNewName :player.name
 
             return (
-
+ 
         <div 
         key={player.id}
         draggable="false"
@@ -119,7 +122,8 @@ const ITEM_WIDTH = 800
 
         <div className=' absolute bottom-0  text-center text-3xl font-bold text-white mb-8 text-wrap select-none'>
 
-            <h1> {endName}</h1>
+            <h1>  
+              {endName}</h1>
 
         </div>
         <div>
