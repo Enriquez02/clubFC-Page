@@ -1,14 +1,40 @@
 
 // Div where show information about barca,their history, Johan Cruyff and The Masia
 
-import { useState } from "react"
+import { useState, useRef, useEffect  } from "react"
+
+
 import  barca from "../assets/imgContentBarca/2009.jpg";
 import history from "../assets/imgContentBarca/history.jpg";
 import johan from "../assets/imgContentBarca/johan.jpg";
 import masia from "../assets/imgContentBarca/masia.jpg"
 
-
 const ContentBarca = () => {
+
+const containerRef = useRef(null);
+
+useEffect(() => {
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+
+             const div = entry.target;
+
+            if (entry.isIntersecting) {
+        
+        div.style.animationPlayState = "running"; // CSS animation
+      } else {
+        
+        div.style.animationPlayState = "paused";
+      }
+    },
+         { threshold: 0.1 } 
+    );
+      if (containerRef.current) {
+    observer.observe(containerRef.current);
+  }
+    return () => observer.disconnect();
+
+}, []);
 
   const clubInfo = [
       { id: 0, title: "Our Best Team", info1: "El mejor Barcelona de la historia fue el que dirigió Pep Guardiola entre 2008 y 2012, un equipo que marcó una época y cambió la forma de entender el fútbol. Su estilo se basaba en el tiki-taka, un juego de posesión, toques cortos y movimientos constantes, " , info2: " con el objetivo de dominar el balón y desgastar al rival. Este sistema no solo buscaba ganar, sino también hacerlo con belleza, precisión y control total del partido.", img : barca
@@ -36,6 +62,7 @@ const ContentBarca = () => {
             >
                 {/* 2. EL BORDE ANIMADO: APLICAMOS EL DOBLE COLOR */}
                 <div 
+                ref={containerRef}
                     className='
                         absolute inset-0 
                         rounded-3xl 
