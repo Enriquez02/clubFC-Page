@@ -26,19 +26,29 @@ const  Scrolling= () => {
 const ITEM_WIDTH = 800
 
      useEffect(() => {
-    const fetchSquad = async () => {
-    try{
-        const response = await axios.get(API_URL);
-        const teamInfo = response.data.response[0].players;
+  const fetchSquad = async () => {
+    try {
+      const response = await axios.get(API_URL);
 
-        setData(teamInfo);
-    }finally{
+      const teamInfo = response.data?.response?.[0]?.players;
+
+      if (!teamInfo) {
+        console.error("Invalid squad data:", response.data);
+        return;
+      }
+
+      setData(teamInfo);
+
+    } catch (err) {
+      console.error("Frontend error fetching squad:", err.message);
+    } finally {
       setIsLoading(false);
-    }      
-    };
+    }
+  };
 
-    fetchSquad();
-  }, []);
+  fetchSquad();
+}, []);
+
     
      const { 
 
