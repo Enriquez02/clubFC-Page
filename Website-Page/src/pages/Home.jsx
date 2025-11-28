@@ -1,5 +1,5 @@
-import ParticlesComponent from '../components/ParticlesBackground'
-import ContentBarca from '../components/contentBarca'
+import ParticlesComponent from '../features/Home/coverHome/ParticlesBackground'
+import ContentBarca from '../features/Home/contentBarca/contentBarca'
 import Scrolling from '../components/Scrolling'
 import MesQueUnClub from '../components/mesQueUnClub'
 import BarcaFooter from '../components/footer'

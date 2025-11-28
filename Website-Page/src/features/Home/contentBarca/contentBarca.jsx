@@ -4,10 +4,10 @@
 import { useState, useRef, useEffect  } from "react"
 
 
-import  barca from "../assets/imgContentBarca/2009.jpg";
-import history from "../assets/imgContentBarca/history.jpg";
-import johan from "../assets/imgContentBarca/johan.jpg";
-import masia from "../assets/imgContentBarca/masia.jpg"
+import  barca from "../../../assets/imgContentBarca/2009.jpg";
+import history from "../../../assets/imgContentBarca/history.jpg";
+import johan from "../../../assets/imgContentBarca/johan.jpg";
+import masia from "../../../assets/imgContentBarca/masia.jpg"
 
 const ContentBarca = () => {
 

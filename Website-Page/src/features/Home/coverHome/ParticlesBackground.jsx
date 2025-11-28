@@ -1,8 +1,8 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
-import barcaBackground from '../assets/fcb_logo2.png';
-import lettersBarca from '../assets/OIP3.webp'
+import barcaBackground from '../../../assets/fcb_logo2.png';
+import lettersBarca from '../../../assets/OIP3.webp'
 
 
 
@@ -563,7 +563,7 @@ const ParticlesComponent = () => {
 };
 
 return (
-  <div className="relative h-[100vh] w-full overflow-hidden">
+  <div className="relative h-screen w-full overflow-hidden">
     {init && <Particles options={options}  className="absolute top-0 left-0 w-full h-full -z-10"/>}
 
     <div className="relative flex flex-col lg:flex-row justify-center items-center pl-22 pr-15 gap-2 h-full w-full text-center ">
