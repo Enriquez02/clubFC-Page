@@ -1,6 +1,6 @@
 import ParticlesComponent from '../features/Home/coverHome/ParticlesBackground'
 import ContentBarca from '../features/Home/contentBarca/contentBarca'
-import Scrolling from '../components/Scrolling'
+import Scrolling from '../features/Home/teamScroll/Scrolling'
 import MesQueUnClub from '../components/mesQueUnClub'
 import BarcaFooter from '../components/footer'
 

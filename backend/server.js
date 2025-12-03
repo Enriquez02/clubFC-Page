@@ -1,80 +1,59 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios'); 
+const axios = require('axios');
 
 const app = express();
 
-// MIDDLEWARE (Reglas de Tráfico)
-app.use(cors()); 
-app.use(express.json()); 
+// MIDDLEWARE
+app.use(cors());
+app.use(express.json());
 
 // ----------------------------------------------------
-// 1. CONSTANTES Y CONFIGURACIÓN DE LA API EXTERNA
+// 1. CONSTANTES Y CONFIGURACIÓN
 // ----------------------------------------------------
 
-//  Cargamos las variables del .env en memoria
-const API_KEY = process.env.APISPORTS_KEY; 
-const API_HOST = process.env.RAPIDAPI_HOST;
+const API_KEY = process.env.X_AUTH_TOKEN;  // tu X-Auth-Token
+const BASE_URL = 'https://api.football-data.org/v4/teams/81';
 
-//  Definimos la URL (¡Perfecto!)
-const BASE_URL = 'https://v3.football.api-sports.io/players/squads?team=529'
-
-//  Definimos las credenciales para Axios/fetch
-const authHeaders = { 
-'x-apisports-key': API_KEY,
-'x-rapidapi-host': API_HOST,
-}
+const authHeaders = {
+  "X-Auth-Token": API_KEY
+};
 
 // ----------------------------------------------------
-// 2. RUTAS DE LA API (Endpoints)
+// 2. RUTAS
 // ----------------------------------------------------
 
-// RUTA 1: Health Check (Ruta Raíz)
 app.get('/', (req, res) => {
-    return res.send({ message: 'API de Fútbol funcionando correctamente, Enrique!' });
+  return res.send({ message: 'API de fútbol funcionando correctamente, Enrique!' });
 });
 
 
-// RUTA 2: Petición a la API Externa 
+// 🔥 ESTA ES LA RUTA QUE IMPORTA
 app.get('/squad', async (req, res) => {
-
-    try { 
-        
-        //  Hacemos la petición a la API externa
-         const response = await axios.get(BASE_URL, {
-        headers: authHeaders,
+  try {
+    const response = await axios.get(BASE_URL, {
+      headers: authHeaders,
     });
-        // Devolvemos la respuesta de la API externa a nuestro Frontend
 
-            return res.json(response.data);
+    // extraemos solo la parte de jugadores
+return res.json(response.data);
+  } catch (error) {
+    console.error("Error al obtener datos de la API:", error.message);
 
-    } catch (error) { // ⬅️ CAPTURAMOS el error si algo sale mal
-
-        //  Manejo de errores (lo vemos en nuestra consola)
-        console.error("Error al obtener datos de la API de Fútbol:", error.message);
-
-        // Devolvemos un error 500 al cliente de forma segura
-        return res.status(500).json({
-            message: 'Error al conectar con la API externa.',
-            details: error.message
-        });
-
-
-
-    } 
-    
-}); 
-
+    return res.status(500).json({
+      message: 'Error al conectar con la API externa.',
+      details: error.message
+    });
+  }
+});
 
 // ----------------------------------------------------
 // 3. INICIO DEL SERVIDOR
 // ----------------------------------------------------
 
-// Define el puerto (usa la variable de entorno PORT o 7000 por defecto)
-const PORT = process.env.PORT || 7000; 
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
-    // Confirma que el servidor está escuchando
-    console.log(`🚀 Servidor Express escuchando en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor Express escuchando en http://localhost:${PORT}`);
 });
-   

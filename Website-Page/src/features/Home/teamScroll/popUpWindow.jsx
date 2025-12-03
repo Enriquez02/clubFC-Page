@@ -1,4 +1,4 @@
-
+// to see more in
 const MoreInformation = ({ onMoreInfo }) => {
 
 

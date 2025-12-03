@@ -1,5 +1,5 @@
 //Sponsor
-import {ImgnikeOne,ImgnikeTwo,ImgnikeThree} from '../components/img-footer'
+import {ImgnikeOne,ImgnikeTwo,ImgnikeThree,SocialSpotifyTwo,SocialFace,SocialTwitter,SocialDiscord,SocialTikTok,SocialYoutuber,SocialInstagram} from '../components/img-footer'
 
 //Social Media
 import face from '../assets/footer/face.png'
@@ -26,14 +26,14 @@ function BarcaFooter() {
             </section>
 
           <h2 className='text-center text-white pt-5 font-sans '> Follow FC Barcelona on Social Media  </h2>
-          <section className='grid grid-cols-7 w-8/12 sm:w-6/12 md:w-2/5 lg:w-4/12 m-auto gap-5 py-3'>
-            <img src={face} alt="socialmedia-face"  />
-            <img src={x} alt="socialmedia-x" />
-            <img src={youtube} alt="socialmedia-youtube" />
-            <img src={instagram} alt="socialmedia-instagram" />
-            <img src={spotify_sm} alt="socialmedia-spotify-sm" />
-            <img src={discord} alt="socialmedia-discord" />
-            <img src={tiktok} alt="socialmedia-tiktok" />
+          <section className='grid grid-cols-7 w-11/12 sm:w-10/12 md:w-2/5 lg:w-4/12 m-auto gap-5 sm:gap-5 py-3'>
+            <SocialFace/>
+            <SocialTwitter/>
+            <SocialYoutuber/>
+            <SocialInstagram/>
+            <SocialSpotifyTwo/>
+            <SocialDiscord/>
+            <SocialTikTok/>
           </section>
 
           {/* Information */}
@@ -51,9 +51,9 @@ function BarcaFooter() {
     
     {/* COLUMNA 2: Defenses */}
     <div>
-        <h2 className='pb-5 text-2xl font-semibold'>Defenders</h2>
+        <h2 className='pb-5 text-2xl font-semibold '>Defenders</h2>
         <ul className='space-y-1 text-white/75'> 
-            <li>Pau Cubarsí</li>
+            <li className=' hover '>Pau Cubarsí</li>
             <li>Alejandro Balde</li>
             <li>Ronald Araujo</li>
             <li>Andreas Christensen</li>
