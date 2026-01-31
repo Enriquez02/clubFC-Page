@@ -2,9 +2,9 @@
 import Navbar from "./components/navBar"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Contacto from "./pages/contacto";
-import { Vitrina } from "./pages/vitrina";
-import Calendario from "./pages/calendario";
+import Contacto from "./pages/Contacto";
+import { Vitrina } from "./pages/Vitrina";
+import Calendario from "./pages/Calendario";
 
 function App() {
   

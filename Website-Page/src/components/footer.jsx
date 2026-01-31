@@ -3,7 +3,7 @@ import {ImgnikeOne,ImgnikeTwo,ImgnikeThree,SocialSpotifyTwo,SocialFace,SocialTwi
 
 //Social Media
 import face from '../assets/footer/face.png'
-import x from '../assets/footer/x.png'
+import x from '../assets/footer/X.png'
 import youtube from '../assets/footer/youtube.png'
 import instagram from '../assets/footer/ig.png'
 import spotify_sm from '../assets/footer/spotify-sm.png'

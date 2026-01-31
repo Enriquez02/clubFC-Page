@@ -64,7 +64,7 @@ const Scrolling = () => {
         onMouseUp={showModal ? undefined : handleMouseUp}
         onMouseLeave={showModal ? undefined : handleMouseLeave}
         onMouseMove={showModal ? undefined : handleMouseMove}
-        className="bg-white mx-1 p-5 flex overflow-x-scroll whitespace-nowrap cursor-grab rounded-b-2xl scrollbar-thin [&::-webkit-scrollbar]:hidden sm:mx-5"
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden mx-1 sm:mx-5 p-5 bg-white rounded-b-2xl cursor-grab select-none"
       >
         {data
           .filter(player => !excludedPlayer.some(ex => String(ex.id) === String(player.id)))
@@ -85,7 +85,7 @@ const Scrolling = () => {
                 className={`h-67 w-50 bg-linear-to-b from-gray-900 to-blue-900 mt-20 mb-10 relative flex justify-evenly rounded-4xl flex-none select-none overflow-hidden ${index === 0 ? 'ml-4' : 'ml-10'}`}
               >
                 <div className='absolute select-none w-full bottom-0'>
-                  <img src={fotoFinal} alt={player.name} className='pointer-events-auto h-60 m-auto' />
+                  <img src={fotoFinal} alt={player.name} draggable="false" className='pointer-events-auto h-60 m-auto' />
                 </div>
 
                 <div className="absolute inset-x-0 rounded-4xl bottom-0 h-1/3 bg-linear-to-t from-blue-900 to-transparent"></div>
