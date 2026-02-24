@@ -4,7 +4,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SquadMap, ShortName, excludedPlayer } from './Squad.jsx';
-import useScrollDrag from './Scrollear.jsx';
+import useScrollarrow from '../../../hooks/arrowScroll.jsx';
+import useScrollDrag from '../../../hooks/draggingScroll.jsx';
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import MoreInformation from './popUpWindow.jsx';
 import { getSquad } from '../../../services/squad/squadApi.jsx';
@@ -33,9 +34,14 @@ const Scrolling = () => {
   }, []);
 
   const { 
-    containerRef, handleMouseDown, handleMouseUp, handleMouseMove, 
-    handleMouseLeave, handleScroll 
+    containerRef,
+     handleMouseDown,
+      handleMouseUp,
+       handleMouseMove, 
+    handleMouseLeave,
   } = useScrollDrag();
+
+const { handleScrollArrow } = useScrollarrow(containerRef);
 
   if (isLoading) return <div className="text-center mt-10">Loading...</div>;
 
@@ -48,11 +54,11 @@ const Scrolling = () => {
       {/* Scroll buttons */}
       <div className='hidden sm:flex absolute top-5 right-10 gap-x-2'>
         <button className='flex items-center justify-center h-10 w-10 rounded-full hover:bg-blue-800/60'
-          onClick={() => handleScroll(-ITEM_WIDTH)}>
+          onClick={() => handleScrollArrow(-ITEM_WIDTH)}>
           <GoArrowLeft className='h-7 w-7 text-gray-500' />
         </button>
         <button className='flex items-center justify-center h-10 w-10 rounded-full hover:bg-blue-800/60'
-          onClick={() => handleScroll(ITEM_WIDTH)}>
+          onClick={() => handleScrollArrow(ITEM_WIDTH)}>
           <GoArrowRight className='h-7 w-7 text-gray-500' />
         </button>
       </div>

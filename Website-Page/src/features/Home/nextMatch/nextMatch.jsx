@@ -1,5 +1,5 @@
 import CountDown from "./components/countDown";
-import useScrollDrag from "../../../hooks/scroll"; // Asegúrate de que la ruta sea correcta
+import useScrollDrag from "../../../hooks/draggingScroll"; // Asegúrate de que la ruta sea correcta
 
 
 const NextMatch = ({ matches }) => {
@@ -9,7 +9,12 @@ const NextMatch = ({ matches }) => {
   .slice(0, 3);
   
   // Llamamos a tu custom hook
-  const { containerRef, handleMouseDown, handleMouseUp, handleMouseMove, handleMouseLeave } = useScrollDrag();
+  const { containerRef, 
+    handleMouseDown, 
+    handleMouseUp, 
+    handleMouseMove,
+     handleMouseLeave 
+    } = useScrollDrag();
 
   if (!nextMatch) {
     return <div className="bg-amber-400 p-4 rounded-lg">No hay próximos partidos.</div>;

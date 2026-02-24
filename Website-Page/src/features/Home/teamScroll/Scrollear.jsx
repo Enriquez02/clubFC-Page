@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 
 
 //Como para scrollear con el mouse
-const useScrollDrag = () => {
+const useScrollDrag// = () => {
  
   // ARRASTRE 
       
